@@ -112,7 +112,9 @@ stateDiagram-v2
     CLOSED --> [*]
 ```
 
+
 ### 2.3 End-to-End Execution Sequence
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -120,29 +122,35 @@ sequenceDiagram
     participant Contract as CropInsurance.sol
     participant Oracles as 3 Oracle Daemons
     actor FraudChecker as Fraud Reviewer
-    
+
     Farmer->>Contract: createPolicy(landHash, crop, region, sumInsured) + Premium ETH
-    Note over Contract: Enforce: Pool + Premium >= Exposure + SumInsured<br/>Enforce: activeLandHashes[landHash] == false
-    Contract-->>Farmer: PolicyCreated (ID: #1, Status: ACTIVE)
-    
+    Note over Contract: Enforce pool and premium coverage
+    Note over Contract: Check activeLandHashes[landHash] == false
+    Contract-->>Farmer: PolicyCreated (ID: 1, Status: ACTIVE)
+
     Note over Farmer,Contract: Season Window (June 1 - October 31: 153 Days)
-    
+
     Oracles->>Contract: submitReport(policyId, WEATHER, Tier 2)
     Oracles->>Contract: submitReport(policyId, SATELLITE, Tier 2)
-    Note over Contract: 2-of-3 Consensus reached immediately!
-    
+    Note over Contract: 2-of-3 Consensus reached immediately
+
     opt Suspicious Activity
         FraudChecker->>Contract: flagFraud(policyId, reasonHash)
-        Note over Contract: Status -> UNDER_REVIEW (Settlement Halted)
+        Note over Contract: Status changes to UNDER_REVIEW
+        Note over Contract: Settlement is halted
     end
-    
+
     Farmer->>Contract: settlePolicy(policyId)
-    Note over Contract: Calculates 50% payout from Tier 2.<br/>Credits claimable balance; marks SETTLED.
-    
+    Note over Contract: Calculates 50% payout from Tier 2
+    Note over Contract: Credits claimable balance and marks SETTLED
+
     Farmer->>Contract: withdrawPayout(policyId)
-    Note over Contract: Checks-Effects-Interactions:<br/>claimableBalance[farmer] = 0.<br/>Transfers ETH to Farmer.
+    Note over Contract: Checks-Effects-Interactions pattern
+    Note over Contract: Sets claimableBalance[farmer] to zero
+    Note over Contract: Transfers ETH to Farmer
     Contract-->>Farmer: Payout Transferred
 ```
+
 
 ---
 
