@@ -1,0 +1,24 @@
+# Web3 & Blockchain
+web3==7.16.0
+eth-account==0.14.0
+
+# Data Processing & Numerical Computing
+numpy==1.26.4
+pandas==2.2.3
+scipy==1.13.1
+
+# Machine Learning & Fraud Evaluation
+scikit-learn==1.5.2
+joblib==1.4.2
+
+# Remote Sensing & Meteorological APIs
+requests==2.34.2
+earthengine-api==1.4.1
+
+# Visualization
+matplotlib==3.9.2
+
+# Testing & Quality Assurance
+pytest==8.3.3
+flake8==7.1.1
+python-dotenv==1.0.1

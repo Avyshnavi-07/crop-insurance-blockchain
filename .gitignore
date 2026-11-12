@@ -1,0 +1,49 @@
+# Environment secrets
+.env
+*.env
+.env.*
+!.env.example
+
+# Node dependencies and build
+node_modules/
+frontend/dist/
+dist/
+package-lock.json.bak
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Hardhat & Solidity
+artifacts/
+cache/
+coverage/
+coverage.json
+typechain-types/
+hardhat-gas-report.txt
+
+# Python virtual environment & cache
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Static Analysis
+.slither/
+slither.db
+slither-report.json
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated data cache (keep data/processed and reference_labels, ignore large raw downloads)
+data/raw/*
+!data/raw/.gitkeep

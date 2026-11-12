@@ -1,0 +1,49 @@
+{
+  "name": "crop-insurance-chain",
+  "version": "1.0.0",
+  "description": "Hardware-free blockchain crop-insurance research prototype with multi-source consensus",
+  "main": "hardhat.config.ts",
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile",
+    "clean": "hardhat clean",
+    "lint": "prettier --check --no-error-on-unmatched-pattern \"contracts/**/*.sol\" \"test/**/*.ts\" \"scripts/**/*.ts\" && solhint \"contracts/**/*.sol\"",
+    "format": "prettier --write --no-error-on-unmatched-pattern \"contracts/**/*.sol\" \"test/**/*.ts\" \"scripts/**/*.ts\"",
+    "deploy:local": "hardhat run scripts/deploy.ts --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.ts --network sepolia",
+    "oracle:weather": "python oracles/weather_oracle.py",
+    "oracle:satellite": "python oracles/satellite_oracle.py",
+    "oracle:soil": "python oracles/soil_oracle.py",
+    "oracle:all": "python oracles/run_all_oracles.py",
+    "experiments": "python experiments/run_all_experiments.py"
+  },
+  "keywords": [
+    "blockchain",
+    "crop-insurance",
+    "smart-contracts",
+    "oracles",
+    "solidity",
+    "remote-sensing"
+  ],
+  "author": "Research Prototype Team",
+  "license": "MIT",
+  "dependencies": {
+    "@openzeppelin/contracts": "5.1.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "5.0.0",
+    "@types/chai": "4.3.16",
+    "@types/mocha": "10.0.9",
+    "@types/node": "20.17.6",
+    "chai": "4.4.1",
+    "dotenv": "16.4.5",
+    "ethers": "6.14.0",
+    "hardhat": "2.29.1",
+    "hardhat-gas-reporter": "1.0.10",
+    "prettier": "3.3.3",
+    "prettier-plugin-solidity": "1.4.1",
+    "solhint": "5.0.3",
+    "ts-node": "10.9.2",
+    "typescript": "5.6.3"
+  }
+}

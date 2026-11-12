@@ -1,0 +1,17 @@
+model,fraud_type,recall_mean,recall_std
+Heuristic Rule Engine,anomalous_claim_pattern,1.0,0.0
+Heuristic Rule Engine,duplicate_boundary,0.2666666666666666,0.1218247505282479
+Heuristic Rule Engine,inflated_sum_insured,0.8057142857142857,0.0905638672924081
+Heuristic Rule Engine,out_of_district,1.0,0.0
+Isolation Forest,anomalous_claim_pattern,1.0,0.0
+Isolation Forest,duplicate_boundary,0.0552380952380952,0.0564039528374706
+Isolation Forest,inflated_sum_insured,0.7095238095238094,0.0985150517408438
+Isolation Forest,out_of_district,0.3666666666666666,0.1310172999256915
+MLP Autoencoder,anomalous_claim_pattern,0.6571428571428571,0.331474408434063
+MLP Autoencoder,duplicate_boundary,0.0142857142857142,0.0319438282499969
+MLP Autoencoder,inflated_sum_insured,1.0,0.0
+MLP Autoencoder,out_of_district,0.3019047619047619,0.1252480531981714
+Heuristic Rule Engine + Spatial Proximity (Enhanced),duplicate_boundary,0.5276190476190477,0.04979777699962426
+Heuristic Rule Engine + Spatial Proximity (Enhanced),out_of_district,1.0,0.0
+Heuristic Rule Engine + Spatial Proximity (Enhanced),anomalous_claim_pattern,1.0,0.0
+Heuristic Rule Engine + Spatial Proximity (Enhanced),inflated_sum_insured,0.8057142857142857,0.0810027854284378

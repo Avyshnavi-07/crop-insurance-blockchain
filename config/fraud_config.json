@@ -1,0 +1,47 @@
+{
+  "_metadata": {
+    "version": "1.0.0",
+    "description": "Spatial and financial configuration assumptions for fraud detection in Andhra Pradesh Kharif groundnut belt.",
+    "warning": "CRITICAL: All geographic bounding boxes, benchmark costs, and thresholds in this file are RESEARCH ASSUMPTIONS for prototype evaluation. Real-world underwriting requires cadastral GIS survey records and local AP Rythu Bharosa / PMFBY scale-of-finance schedules.",
+    "status": "RESEARCH_ASSUMPTIONS_PROTOTYPE"
+  },
+  "district_bounding_boxes": {
+    "Anantapur": {
+      "min_lat": 13.68,
+      "max_lat": 15.25,
+      "min_lon": 76.75,
+      "max_lon": 78.40,
+      "center": {"lat": 14.68, "lon": 77.60},
+      "note": "Approximate bounding envelope for Anantapur district."
+    },
+    "Kurnool": {
+      "min_lat": 14.90,
+      "max_lat": 16.30,
+      "min_lon": 76.95,
+      "max_lon": 79.15,
+      "center": {"lat": 15.83, "lon": 78.04},
+      "note": "Approximate bounding envelope for Kurnool district."
+    },
+    "Kadapa": {
+      "min_lat": 13.72,
+      "max_lat": 15.25,
+      "min_lon": 77.90,
+      "max_lon": 79.50,
+      "center": {"lat": 14.47, "lon": 78.82},
+      "note": "Approximate bounding envelope for YSR Kadapa district."
+    }
+  },
+  "benchmarks": {
+    "groundnut_sum_insured_per_ha_eth": 0.50,
+    "standard_deviation_ratio": 0.15,
+    "max_legitimate_farm_ha": 25.0,
+    "min_legitimate_farm_ha": 0.20
+  },
+  "rule_engine_thresholds": {
+    "inflated_ratio_threshold": 2.0,
+    "anomalous_days_before_season": 3,
+    "anomalous_claim_history_count": 3,
+    "max_farmer_policies_per_season": 4,
+    "buffer_deg_outside_district": 0.01
+  }
+}

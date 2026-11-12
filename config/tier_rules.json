@@ -1,0 +1,106 @@
+{
+  "_metadata": {
+    "version": "1.0.0",
+    "description": "Parametric crop insurance drought severity tier thresholds.",
+    "warning": "CRITICAL: All cut-offs in this file are RESEARCH ASSUMPTIONS for Andhra Pradesh Kharif groundnut. They must remain configurable and should never be hard-coded into smart contracts or scripts. Thresholds are calibrated relative to historical baseline medians (leave-one-year-out).",
+    "status": "ASSUMPTIONS_PROTOTYPE"
+  },
+  "sources": {
+    "weather_rainfall": {
+      "metric": "seasonal_cumulative_rainfall_deficit_pct",
+      "description": "Percentage deficit relative to historical median seasonal rainfall (1 June - 31 October).",
+      "threshold_assumptions": {
+        "tier_0_normal": {
+          "max_deficit_pct": 20.0,
+          "payout_pct": 0,
+          "note": "ASSUMPTION: Deficit <= 20% indicates normal or mild variation without catastrophic loss."
+        },
+        "tier_1_moderate": {
+          "min_deficit_pct": 20.01,
+          "max_deficit_pct": 40.0,
+          "payout_pct": 25,
+          "note": "ASSUMPTION: Deficit 20-40% indicates moderate drought stress."
+        },
+        "tier_2_severe": {
+          "min_deficit_pct": 40.01,
+          "max_deficit_pct": 60.0,
+          "payout_pct": 50,
+          "note": "ASSUMPTION: Deficit 40-60% indicates severe drought conditions."
+        },
+        "tier_3_catastrophic": {
+          "min_deficit_pct": 60.01,
+          "payout_pct": 100,
+          "note": "ASSUMPTION: Deficit > 60% indicates total crop failure level drought."
+        }
+      }
+    },
+    "satellite_ndvi": {
+      "metric": "seasonal_peak_ndvi_deficit_pct",
+      "description": "Percentage drop relative to historical median peak NDVI over the Kharif season.",
+      "threshold_assumptions": {
+        "tier_0_normal": {
+          "max_deficit_pct": 15.0,
+          "payout_pct": 0,
+          "note": "ASSUMPTION: NDVI deficit <= 15% indicates healthy crop vegetative growth."
+        },
+        "tier_1_moderate": {
+          "min_deficit_pct": 15.01,
+          "max_deficit_pct": 30.0,
+          "payout_pct": 25,
+          "note": "ASSUMPTION: NDVI deficit 15-30% indicates noticeable canopy stunting or stress."
+        },
+        "tier_2_severe": {
+          "min_deficit_pct": 30.01,
+          "max_deficit_pct": 45.0,
+          "payout_pct": 50,
+          "note": "ASSUMPTION: NDVI deficit 30-45% indicates significant vegetative loss."
+        },
+        "tier_3_catastrophic": {
+          "min_deficit_pct": 45.01,
+          "payout_pct": 100,
+          "note": "ASSUMPTION: NDVI deficit > 45% indicates widespread vegetation failure."
+        }
+      }
+    },
+    "soil_moisture": {
+      "metric": "seasonal_mean_soil_moisture_deficit_pct",
+      "description": "Percentage drop relative to historical median root-zone / surface soil moisture.",
+      "threshold_assumptions": {
+        "tier_0_normal": {
+          "max_deficit_pct": 15.0,
+          "payout_pct": 0,
+          "note": "ASSUMPTION: Soil moisture deficit <= 15% indicates adequate soil moisture."
+        },
+        "tier_1_moderate": {
+          "min_deficit_pct": 15.01,
+          "max_deficit_pct": 30.0,
+          "payout_pct": 25,
+          "note": "ASSUMPTION: Soil moisture deficit 15-30% indicates moderate root-zone water depletion."
+        },
+        "tier_2_severe": {
+          "min_deficit_pct": 30.01,
+          "max_deficit_pct": 45.0,
+          "payout_pct": 50,
+          "note": "ASSUMPTION: Soil moisture deficit 30-45% indicates acute soil moisture deficit."
+        },
+        "tier_3_catastrophic": {
+          "min_deficit_pct": 45.01,
+          "payout_pct": 100,
+          "note": "ASSUMPTION: Soil moisture deficit > 45% indicates severe moisture desiccation."
+        }
+      }
+    }
+  },
+  "payout_schedule": {
+    "tier_0": 0.0,
+    "tier_1": 0.25,
+    "tier_2": 0.50,
+    "tier_3": 1.00
+  },
+  "regional_risk_rates": {
+    "ANANTAPUR": 0.035,
+    "KURNOOL": 0.025,
+    "KADAPA": 0.020
+  },
+  "base_premium_rate": 0.03
+}

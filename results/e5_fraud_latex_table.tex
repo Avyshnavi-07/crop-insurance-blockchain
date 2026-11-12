@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Empirical Fraud Detection Benchmark on Synthetic Dataset (5-Seed Mean $\pm$ Std)}
+\label{tab:fraud_benchmark}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lcccccccc}
+\hline
+\textbf{Model Architecture} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} & \textbf{AUC} & \textbf{Duplicate} & \textbf{Out-District} & \textbf{Anomalous} & \textbf{Inflated} \\
+\hline
+Heuristic Rule Engine & 0.909 $\pm$ 0.039 & 0.769 $\pm$ 0.034 & 0.832 $\pm$ 0.012 & 0.881 $\pm$ 0.015 & 0.27 & 1.00 & 1.00 & 0.81 \\
+Isolation Forest & 0.409 $\pm$ 0.032 & 0.534 $\pm$ 0.042 & 0.463 $\pm$ 0.033 & 0.812 $\pm$ 0.029 & 0.06 & 0.37 & 1.00 & 0.71 \\
+MLP Autoencoder & 0.854 $\pm$ 0.092 & 0.493 $\pm$ 0.101 & 0.620 $\pm$ 0.089 & 0.860 $\pm$ 0.019 & 0.01 & 0.30 & 0.66 & 1.00 \\
+Heuristic Rule Engine + Spatial Proximity (Enhanced) & 0.853 $\pm$ 0.027 & 0.834 $\pm$ 0.032 & 0.843 $\pm$ 0.014 & 0.910 $\pm$ 0.015 & 0.53 & 1.00 & 1.00 & 0.81 \\
+\hline
+\end{tabular}
+}
+\end{table*}
